@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[itechblue]]></title>
+  <link href="http://itechblue.github.io//github/atom.xml" rel="self"/>
+  <link href="http://itechblue.github.io//github/"/>
+  <updated>2013-07-17T18:14:56+08:00</updated>
+  <id>http://itechblue.github.io//github/</id>
+  <author>
+    <name><![CDATA[Simon]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[hello world]]></title>
+    <link href="http://itechblue.github.io//github/blog/2013/07/17/hello-world/"/>
+    <updated>2013-07-17T17:59:00+08:00</updated>
+    <id>http://itechblue.github.io//github/blog/2013/07/17/hello-world</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+</feed>
