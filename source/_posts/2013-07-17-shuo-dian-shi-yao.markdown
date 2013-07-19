@@ -80,3 +80,52 @@ Mou这个markdown编辑器一看就知道是个好东西。主页有图文并茂
 目前搭建的博客仅仅简单地实现了编写博文、展示博文列表的功能。博客界面如何进行个性化定制、Octopress还提供了什么好功能，这都是我接下来要研究的地方。
 
 当博文多起来的时候，起码能够归类吧！
+
+##补记
+配置站点的时候，我由于有第一次实践的经验，将站点根目录下的配置文件_config.yml进行了修改，比如博客title、subtitle什么的。更有用的是修改了3rd Party Settings下的那些插件配置。
+
+具体来说就是用#注释掉了大部分的插件调用，像twitter、facebook、Pinboard这些，一来我也不用它们，二来咱中国用户被墙了，不但访问不了这些服务，还被拖慢了博文的加载速度。所以注释掉它们是一个优化页面的小技巧。
+
+#功能更新：disqus评论插件
+##起源
+心痒痒，觉得博客没有评论模块不完整，又看到大家的Octopress博客都带上了美观实用的disqus插件，自然我也得弄一个出来。
+##参考
+- 心静茹水：给octopress添加Disqus评论功能
+
+<http://seagg.github.io/blog/2012/09/03/config-comment-on-octopress/>
+
+这篇博文很清楚地介绍了添加disqus的步骤。
+##历程
+###注册disqus账号
+按照上面那篇博文的步骤，在disqus官网进行注册。我把注册页面的Register your site for free和Primary Moderator两部分都填了。要注意的地方是，它会给你生成（如果没有，自己填也行，推荐用英文字母）一个叫`Site Shortname`的名称，这个得记住，我的是itechblue。接着点继续，它就转到一个页面教你怎么将disqus集成到自己的网站去。
+
+`可是Octopress已经集成了disqus...优越感油然而生=p`
+
+最后去注册时填的邮箱查看激活邮件，然后点激活就算好了。
+###修改站点配置
+去到站点根目录下，打开配置文件_config.yml，找到3rd Party Settings下的disqus配置，将注册时得到的Site Shortname赋给disqus_short_name，看起来是这样的：
+
+{% codeblock %}
+# Disqus Comments
+disqus_short_name: itechblue
+disqus_show_comment_count: false
+{% endcodeblock %}
+
+细心的话，能留意到我们新建的博文(source/_posts下的markdown文件)的头部写有配置项，其中就有自动生成的comments: true，也就是可评论。
+
+反过来说，将其设为false，就不可评论了。我的hello world那篇博文就是如此。
+###发布
+预览    `rake preview`
+
+生成    `rake generate`
+
+发布    `rake deploy`
+
+同步代码 `git add .` `git commit -m 'xxx'` `git push orgin source`
+###尝试
+disqus评论模块这就出来了，还真方便。赶紧自己抢个沙发。在自己的disqus账号页面也能看到评论记录：
+
+{% img center /images/first_comment.png 290 100 'first comment' 'first comment' %}
+
+>为了显示图片，我还特地查了资料：
+[How to insert image into octopress framework?](http://stackoverflow.com/questions/13486512/how-to-insert-image-into-octopress-framework)
