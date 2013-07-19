@@ -90,8 +90,8 @@ google_plus_one_size: medium
 #delicious_count: 3
 
 # Disqus Comments
-#disqus_short_name:
-#disqus_show_comment_count: false
+disqus_short_name: itechblue
+disqus_show_comment_count: false
 
 # Google Analytics
 #google_analytics_tracking_id:
