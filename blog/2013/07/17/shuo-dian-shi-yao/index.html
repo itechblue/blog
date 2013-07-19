@@ -189,6 +189,74 @@
 <p>目前搭建的博客仅仅简单地实现了编写博文、展示博文列表的功能。博客界面如何进行个性化定制、Octopress还提供了什么好功能，这都是我接下来要研究的地方。</p>
 
 <p>当博文多起来的时候，起码能够归类吧！</p>
+
+<h2>补记</h2>
+
+<p>配置站点的时候，我由于有第一次实践的经验，将站点根目录下的配置文件_config.yml进行了修改，比如博客title、subtitle什么的。更有用的是修改了3rd Party Settings下的那些插件配置。</p>
+
+<p>具体来说就是用#注释掉了大部分的插件调用，像twitter、facebook、Pinboard这些，一来我也不用它们，二来咱中国用户被墙了，不但访问不了这些服务，还被拖慢了博文的加载速度。所以注释掉它们是一个优化页面的小技巧。</p>
+
+<h1>功能更新：disqus评论插件</h1>
+
+<h2>起源</h2>
+
+<p>心痒痒，觉得博客没有评论模块不完整，又看到大家的Octopress博客都带上了美观实用的disqus插件，自然我也得弄一个出来。</p>
+
+<h2>参考</h2>
+
+<ul>
+<li>心静茹水：给octopress添加Disqus评论功能</li>
+</ul>
+
+
+<p><a href="http://seagg.github.io/blog/2012/09/03/config-comment-on-octopress/">http://seagg.github.io/blog/2012/09/03/config-comment-on-octopress/</a></p>
+
+<p>这篇博文很清楚地介绍了添加disqus的步骤。</p>
+
+<h2>历程</h2>
+
+<h3>注册disqus账号</h3>
+
+<p>按照上面那篇博文的步骤，在disqus官网进行注册。我把注册页面的Register your site for free和Primary Moderator两部分都填了。要注意的地方是，它会给你生成（如果没有，自己填也行，推荐用英文字母）一个叫<code>Site Shortname</code>的名称，这个得记住，我的是itechblue。接着点继续，它就转到一个页面教你怎么将disqus集成到自己的网站去。</p>
+
+<p><code>可是Octopress已经集成了disqus...优越感油然而生=p</code></p>
+
+<p>最后去注册时填的邮箱查看激活邮件，然后点激活就算好了。</p>
+
+<h3>修改站点配置</h3>
+
+<p>去到站点根目录下，打开配置文件_config.yml，找到3rd Party Settings下的disqus配置，将注册时得到的Site Shortname赋给disqus_short_name，看起来是这样的：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># Disqus Comments
+</span><span class='line'>disqus_short_name: itechblue
+</span><span class='line'>disqus_show_comment_count: false</span></code></pre></td></tr></table></div></figure>
+
+
+<p>细心的话，能留意到我们新建的博文(source/_posts下的markdown文件)的头部写有配置项，其中就有自动生成的comments: true，也就是可评论。</p>
+
+<p>反过来说，将其设为false，就不可评论了。我的hello world那篇博文就是如此。</p>
+
+<h3>发布</h3>
+
+<p>预览    <code>rake preview</code></p>
+
+<p>生成    <code>rake generate</code></p>
+
+<p>发布    <code>rake deploy</code></p>
+
+<p>同步代码 <code>git add .</code> <code>git commit -m 'xxx'</code> <code>git push orgin source</code></p>
+
+<h3>尝试</h3>
+
+<p>disqus评论模块这就出来了，还真方便。赶紧自己抢个沙发。在自己的disqus账号页面也能看到评论记录：</p>
+
+<p><img class="center" src="/blog/images/first_comment.png" width="290" height="100" title="first comment" alt="first comment"></p>
+
+<blockquote><p>为了显示图片，我还特地查了资料：
+<a href="http://stackoverflow.com/questions/13486512/how-to-insert-image-into-octopress-framework">How to insert image into octopress framework?</a></p></blockquote>
 </div>
 
 
